@@ -1,0 +1,10 @@
+{
+  "cSpell.enableFiletypes": [
+    "csv (pipe)"
+  ],
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "cSpell.words": [
+    "arduino",
+    "millis"
+  ],
+}

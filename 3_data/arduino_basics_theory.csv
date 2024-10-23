@@ -1,0 +1,566 @@
+"front"|"back"|"title"|"difficulty"|"tags"|"status"|"createdAt"|"tipFront"|"tipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance"
+
+#■■■■■■■■■■■
+# snnips: ankicsv, sep..
+
+
+"
+How does the breadboard works?
+
+"|"
+
+In the sides it has horizontal connections,
+and
+In the middle vertical connections.
+
+"|"01 breadboard"|"easy"|"arduino intro"|"learned"|"2024-09-12 14:01:24"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"major"|"source"
+
+
+
+
+"
+What resistors do LEDs use?
+"|"
+220 Ohms
+"|"resistors do LEDs"|"difficulty:easy-medium-hard"|"tags:tag1, tag2"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+
+
+
+"
+How to set and detect an digital input?
+--Debouncing
+--Button Example
+"|"
+back
+  back
+    back
+"|"title"|"difficulty:easy-medium-hard"|"tags:tag1, tag2"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+
+
+
+"
+How to setup an digital input
+"|"
+TODO
+back
+  back
+    back
+"|"title"|"difficulty:easy-medium-hard"|"tags:tag1, tag2"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+"
+How to setup an digital output
+"|"
+TODO
+back
+  back
+    back
+"|"title"|"difficulty:easy-medium-hard"|"tags:tag1, tag2"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+
+
+"
+DAC (Digital to Analog Converter)
+--1)What is?
+--2)What resolution has?
+--3)What is the range of values, from 0 to __3__?
+--4)If we divide the __3__ by 5v?
+
+"|"
+
+1)It's a peripheral that simulate an analog I/O signal.
+2)8-bit resolution
+3)from 0 to 255
+4)5V/255 = 0.2v each unit
+5)(PWM)Pulse Width Modulation
+
+"|"concept: DAC (Digital to Analog Converter)"|"hard"|"theory"|"almost"|"2024-09-15 14:22:30"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"ok"|"source"
+
+
+
+"
+(PWM) Pulse Width Modulation.
+--1)What is?
+--2)What does it consist it?
+"|"
+1)Is a technic to convert from digital to analog
+2)turning the output at very high frequencies on and off, resulting in a medium voltage that is the proportion of the on time with respect to the off time.
+"|"Concept: Pulse Width Modulation"|"easy"|"theory, concept"|"almost"|"2024-09-15 14:20:58"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"ok"|"source"
+
+
+
+
+"
+How to setup an analog write (2 steps)
+"|"
+1.Set the pin mode as output
+  pinMode(myPinNumber, OUTPUT)
+
+2.Write the value (from 0 to 255)
+  analogWrite(myPinNumber, myAnalogValue);
+
+"|"Code for setup an analog write"|"easy"|"theory, codeParts"|"learned"|"2024-09-15 14:19:19"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"ok"|"source"
+
+
+
+"
+Setup a led that increase and decrease its brightness with analogWrite
+--1)Diagram or setup the components
+--2)Code
+"|"
+1)Image
+
+2)■■■ Code ■■■■■■■■■■■■■■■
+int led = 11;
+int intensity = 0;
+int steps = 3;
+int delayMillis = 7;
+
+void setup() {  
+  pinMode(led, OUTPUT);
+}
+
+
+void loop() {
+  increaseLight();
+  decreaseLight();
+}
+
+void increaseLight() {
+  for(intensity=0; intensity<=255; intensity=++intensity) {
+    analogWrite(led, intensity);
+    delay(delayMillis);
+  }
+}
+
+
+void decreaseLight() {
+  for(intensity=255; intensity>=0; intensity=--intensity){
+    analogWrite(led, intensity);
+    delay(delayMillis);
+  }
+}
+■■■ End Code ■■■■■■■■■■■■■■■
+
+
+
+"|"led brightness increase and decrease"|"easy"|"activity"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+
+"
+With analogies describe a NPN Transistor.
+1)Analogies resistance
+2)Analogies water tap
+
+"|"
+1)
+Two pines works like a resistance, but we have a 3º pin where we can move the Ohms, so we can work with relatives, for example, if we put 2.5V in the 3º pin we allow to pass 6V in a 12V circuit.
+
+
+2)
+As a water tap, where we turn the handle and, more or less, water comes out of it. In the transistor case, we set a variable voltage on the base, which allows more or less current to flow from the collector to the emitter and consequently, through all components we connect in between.
+
+"|"Concept: NPN Transistor"|"medium"|"theory, concept, analogy"|"learned"|"2024-09-15 15:05:00"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"ok"|"source"
+
+
+
+"
+1)How many mA maximum can a Arduino pin give?
+2)How many mA can easily consume a toy DC Motor?
+3)How to supply commonly a DC Motor?
+"|"
+1)4mA
+2)200mA
+3)Using an external source and use arduino just as a control with an transistor.
+
+"|"Arduino-pin and DC-Motor max mA"|"medium"|"theory"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+
+"
+How to connect a DC motor?
+"|"
+TODO
+back
+  back
+    back
+"|"title"|"difficulty:easy-medium-hard"|"tags:tag1, tag2"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+
+
+
+
+
+
+#■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+#■■■- 6 Analog Inputs
+#■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+
+
+"
+ADC(Analog to Digital Converter)
+1)What is it?
+3)What is the resolution and what range does this means?
+2)How many ADC pines does arduino have, and how you identify them?
+4)Is the same resolution of DAC? 
+"|"
+
+1)Transform a real analog input to a relative digital input.
+
+2)10-bit resolution that means a range from 0 to 1024
+
+3)Six, If we put the power-Serial2USB Up, they are in the left bottom, there is a 'Analog Power' label, and each pin has an 'A' letter stick to them, for example, 'A0', 'A2', 'A3'.
+
+4)No, DAC has 8-bit resolution = from 0 to 255
+
+"|"Concept Analog to Digital Converter"|"easy"|"theory concept"|"almost"|"2024-09-15 17:08:12"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"ok"|"source"
+
+
+
+
+
+"
+map function
+
+1)How does it do?
+2)Formula
+3)Normal simple Example
+4)Code simple example
+
+"|"
+
+1)Move one value from one range to another range, this from
+
+2)Formula
+------
+-- ( originValue X destinationMaximum ) / originMaximum = relative
+----
+
+3)Simple Example
+If we have value X of 50 in a range from 0 to 100, so in a range from 0 to 1000, X is 500
+-------
+--(50 X 1000) / 100 = 500
+------
+
+4)Code
+//map(originValue, originMin, originMax, destinationMin, destinationMax)
+long r = map(50, 0, 100, 0, 1000); // r = 500
+
+
+"|"codeParts function map and explication"|"medium"|"codeParts, theory"|"almost"|"2024-09-15 15:48:47"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"ok"|"source"
+
+
+
+
+
+
+"
+A)How to setup an analog read (2 steps)
+B)Common task after reading an analog value?
+"|"
+A)
+-1.
+---setup() { pinMode(pin, INPUT); } //optional
+-2.
+---int reading = analogRead(pin);
+
+B)map the value to other rank we can use
+--int state = map(
+----reading,
+----minReading,
+----maxReading,
+----otherRangeMin,
+----otherRangeMax
+--);
+--if(state == 1) { ...
+
+"|"codeParts: analogRead(pin)"|"medium"|"codePart, theory"|"almost"|"2024-09-15 18:35:09"|"TipFront"|"TipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"ok"|"source"
+
+
+
+
+
+
+
+"
+Create a light sensor, indicating with 3 LEDs the light intensity.
+- 0 Pins On = dark
+- 1 Pin  On = obscure
+- 2 Pins On = medium
+- 3 Pins On = shiny
+
+Use map() to pass from photocell analog readings to four states LEDs can have.
+
+1)Components
+
+2)Diagram
+
+3)Code
+
+"|"
+
+1)Components
+--a) 1: 10k resistance
+--b) 1: photocell
+--c) 3: LEDs
+--e) 1: 220 resistance
+
+
+2)Diagram
+--See Image
+
+3)Code
+■■■■-StartCode-■■■■
+
+//readings from 70 to 900
+const int photocell = 0;
+const int minPhotocellReading = 70;
+const int maxPhotocellReading = 900;
+
+//leds
+const unsigned int greenLED = 13;
+const unsigned int yellowLED = 12;
+const unsigned int redLED = 11;
+
+//variables
+int unsigned lightIntensity = 0;
+int unsigned reading = 0;
+
+void setup() {
+  pinMode(greenLED, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
+  pinMode(redLED, OUTPUT);
+  
+  pinMode(photocell, INPUT); //optional
+  Serial.begin(9600);
+}
+
+void loop() {
+  reading = analogRead(photocell);
+  lightIntensity = map(reading, minPhotocellReading, maxPhotocellReading, 1, 4);
+  turnLEDsAcordingStateLightIntensity(lightIntensity);
+  printValues();
+}
+
+void turnLEDsAcordingStateLightIntensity(int lightIntensity) {
+  switch(lightIntensity) {
+    case 1:
+      turnOffAllLeds();
+      break;
+
+   case 2:
+      turnOnOneLed();
+      break;
+
+   case 3:
+      turnOnTwolLeds();
+      break;
+
+   case 4:
+      turnOnTreeLeds();
+      break;
+  }
+}
+
+void turnOffAllLeds() {
+  digitalWrite(greenLED, LOW);
+  digitalWrite(yellowLED, LOW);
+  digitalWrite(redLED, LOW);
+}
+
+void turnOnOneLed() {
+  digitalWrite(greenLED, HIGH);
+  digitalWrite(yellowLED, LOW);
+  digitalWrite(redLED, LOW);
+}
+
+void turnOnTwolLeds() {
+  digitalWrite(greenLED, HIGH);
+  digitalWrite(yellowLED, HIGH);
+  digitalWrite(redLED, LOW);
+}
+
+void turnOnTreeLeds() {
+  digitalWrite(greenLED, HIGH);
+  digitalWrite(yellowLED, HIGH);
+  digitalWrite(redLED, HIGH);
+}
+
+
+void printValues() {
+  Serial.print("photocell: ");
+  Serial.print(reading);
+  Serial.print(", ");
+  Serial.print("lightIntensity: ");
+  Serial.println(lightIntensity);
+  delay(250);
+}
+■■■■-EndCode-■■■■
+
+"|"activity light intensity sensor"|"medium"|"activity analogRead map"|"almost|"2024-09-15 18:24:22"|"TipFront"|"TipBack"|"imageFront.png"|"10_indicating_brightness_turning_on_leds.png"|"audioFront.mp3"|"audioBack.mp3"|"major"|"source"
+
+
+
+
+#■■■■■■■■■■■■■■■■- DC motor speed control revisited
+
+
+
+"
+Potentiometer
+
+1)What is it?, examples
+
+2)What is its diagram?
+
+"|"
+
+1)Is a resistance but with a knob where we can reduce or increase it, for example the volume knob
+
+2)Image
+
+3)
+
+"|"title"|"difficulty:easy-medium-hard"|"tags:tag1, tag2"|"status:noClue-almost-learned-carved"|"Ctrl+Shift+I"|"TipFront"|"TipBack"|"imageFront.png"|"11_potentiometerDiagram.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance:meh-ok-major"|"source"
+
+
+#■■■■■■■■■■■■■■■■-Chapter7 Managing the Time Domain
+
+
+
+
+A microsecond is a millionth of a second, or to put it another way, there are a
+thousand microseconds in a millisecond and a million microseconds in a second.
+
+
+
+
+the maximum delay the
+delayMicroseconds() function can produce is around 16,000 ms.
+
+
+
+
+Funtions that return the passed time, or count time
+=
+millis(): It returns us the number of milliseconds since the sketch
+execution began, same for micros() but in microsecond.
+
+
+
+
+
+For the small number can store the unsigned long variable, if we store the counting time, at what time the functions of millis() and micros() will counting again from zero
+=
+In the case of the millis() function, the overflow will happen after approximately
+50 days and in the case of the micros() function around 70 minutes
+
+
+
+
+
+1) What function will will help us produce those electrical signals that we
+need to generate different sounds?
+2) Example
+3)Desvantage
+=
+1
+  tone(pin, hertzFrequency, [duration])
+2
+  ´´´
+  tone(pin, note1, duration);
+  delay(duration)
+  tone(pin, note2, duration);
+  delay(duration);
+  ´´´
+3
+  Disadvantage of programming sound generation this way is that you
+  can't do anything else while a sound is being produced
+
+
+
+
+
+
+
+
+
+1)What are the two different ways to connect the speaker to Arduino?
+2)Comparation
+=
+1
+--Directly: with such a small current, a typical speaker won't produce an adequate sound.
+
+--Through a transistor that acts as a driver
+
+2
+--As we did in DC Motor
+
+
+
+
+
+#■■■■■■■■■■■■■■■■-Chapter8 Communicating with Others
+
+
+
+
+
+
+Do all servo motors spin 360º
+=
+No, for example one popular is the 'Servo SG90' and this one doesn't spin 360,
+The ones which spin 360 ara know as 'Continuous Rotation', for example the
+'FS90R', but it seems to be more expensive.
+
+
+
+
+
+#■■■■■■■■■■■■■■■■-https://lastminuteengineers.com/stepper-motor-l293d-arduino-tutorial/
+
+
+
+There are two types of steppers, Unipolars and Bipolars, and it is very important to know which type you are working with. For each of the motors, there is a different circuit.
+
+
+
+
+
+We need a H-bridge to control the step motor
+
+
+
+
+
+
+
+Some step motors have the a center conection (in my case 28BYJ-48 it has it) that it's function is to reverse the spin without reversing the algorithm.
+che the diagram:
+--
+-- 13_step_motor_28BYJ-48_diagram.png
+--
+
+
+
+
+#■■■■■■■■■■■■■■■■-Bluetooth
+
+
+Observations to connect the HC-05 Bluetooth module?
+=
+Source:https://projecthub.arduino.cc/syedmahamood/controlling-led-using-hc-05-bluetooth-module-b7f411
+1. this module have a aprox. 10m range
+2. We can use the app 'Arduino Bluetooth controller' of 'Giumig development apps'
+---and set up a quick controller to send a custom data that we need to configure,
+---in the case of the practice it was '0' and '1' for a switch control, and we
+---have the possibility to setup a joystick.

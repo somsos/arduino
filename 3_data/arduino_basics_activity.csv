@@ -1,0 +1,70 @@
+"front"|"back"|"title"|"difficulty"|"tags"|"status"|"createdAt"|"tipFront"|"tipBack"|"imageFront.png"|"imageBack.png"|"audioFront.mp3"|"audioBack.mp3"|"relevance"
+
+
+
+
+
+
+ACTIVITY
+build a timer that once it reaches a predefined amount of time,
+generates a simple chord, and the code allows to do other things
+while waiting for the time to pass by, blinking an LED in this case.
+1. Components
+2. Diagram
+3. Code
+4. Important notes
+=
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+
+
+#■■■■■■■■■■■■■■■■-Chapter8 Communicating with Others
+
+
+
+Spin a servo motor to an angle defined yhe PC keyboard by Serial port.
+1.Components
+2.Diagram
+3.Code
+4.Important notes
+==
+1.Components
+-- Servo Motor sg90
+-- Jump wires
+2.Diagram
+-- Only check the data sheet and connect directly to Arduino
+3.Code
+```
+//■■■
+#include <Servo.h>
+
+const int servoPin = 7;
+const Servo servoComp;
+int servoAngle;
+
+void setup() {
+  Serial.begin(9600);
+  servoComp.attach(7);
+}
+
+
+void loop(){
+  if (Serial.available()) {
+    servoAngle=Serial.parseInt();
+    if(servoAngle == 0) {
+     return ;
+    }
+    Serial.print("Angle: ");
+    Serial.println(servoAngle);
+    servoComp.write(servoAngle);
+  }
+  
+}
+//■■■
+```
+4.Important notes
+--Not all servo motors spin 360º, and other yean ans even the speed.
